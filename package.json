@@ -1,0 +1,15 @@
+{
+  "name": "breast-reconstruction-app",
+  "version": "1.0.0",
+  "description": "Making an AI to AID doctors for post-op surgery on women with breast cancer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "expo": "^51.0.38"
+  }
+}
