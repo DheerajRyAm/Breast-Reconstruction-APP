@@ -2,7 +2,7 @@
   "name": "breast-reconstruction-app",
   "version": "1.0.0",
   "description": "Making an AI to AID doctors for post-op surgery on women with breast cancer.",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "expo": "^51.0.38"
+    "@react-native-community/cli-server-api": "^15.0.1",
+    "expo": "^51.0.38",
+    "metro": "^0.81.0",
+    "react-native": "^0.76.1",
+    "react-native-web": "~0.19.10",
+    "react-dom": "18.2.0",
+    "@expo/metro-runtime": "~3.2.3"
   }
 }
