@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './frontend/app/HomeScreen.js'; // Correct relative path
+import HomeScreen from './frontend/app/HomeScreen'; // Update this path
 
 const Stack = createNativeStackNavigator();
 
