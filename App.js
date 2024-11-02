@@ -1,23 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './front end/app/HomeScreen.js'; // Correct relative path
 
-SplashScreen.preventAutoHideAsync();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function prepare() {
-      await SplashScreen.hideAsync(); // Hide splash screen after app is ready
+      await SplashScreen.preventAutoHideAsync();
+      setTimeout(async () => {
+        setIsLoading(false);
+        await SplashScreen.hideAsync();
+      }, 2000); // 2 seconds
     }
     prepare();
   }, []);
 
+  if (isLoading) {
+    return null; // Render nothing while loading
+  }
+
   return (
-    <View style={styles.container}>
-      <Image source={require('./assets/MM-Logo.png')} style={styles.logo} />
-      <Text style={styles.title}>Hello, World!</Text>
-      <Text style={styles.subtitle}>Welcome to your Expo app running on web!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -29,8 +42,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     marginBottom: 20,
   },
   title: {

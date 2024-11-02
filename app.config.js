@@ -1,7 +1,7 @@
 // app.config.js
 export default {
     expo: {
-      name: "YourAppName",
+      name: "MammoMatch",
       slug: "your-app-slug",
       version: "1.0.0",
       orientation: "portrait",
