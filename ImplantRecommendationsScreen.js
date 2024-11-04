@@ -1,6 +1,11 @@
 // ImplantRecommendationsScreen.js
 import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import PatientDetailsScreen from './PatientDetailsScreen';
+import HomeScreen from './HomeScreen'; 
+import TrendsScreen from './TrendsScreen';
+import DoctorProfileScreen from './DoctorProfileScreen';
+
 
 const ImplantRecommendationsScreen = ({ navigation }) => {
   return (
@@ -26,17 +31,20 @@ const ImplantRecommendationsScreen = ({ navigation }) => {
         <Text style={styles.inputLabel}>Area:</Text>
         <TextInput style={styles.input} placeholder="Area" placeholderTextColor="#666" />
       </View>
-      <TouchableOpacity style={styles.favoriteButton}>
+      <TouchableOpacity
+        style={styles.favoriteButton}
+        onPress={() => navigation.navigate('PatientDetailsScreen')}
+      >
         <Text style={styles.favoriteButtonText}>❤️</Text>
       </TouchableOpacity>
       <View style={styles.navigation}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.navButton}>
           <Text>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Trends')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrendsScreen')} style={styles.navButton}>
           <Text>Trends</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('DoctorProfileScreen')} style={styles.navButton}>
           <Text>Settings</Text>
         </TouchableOpacity>
       </View>
