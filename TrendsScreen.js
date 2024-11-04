@@ -2,6 +2,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
+import HomeScreen from './HomeScreen'; 
+import TrendsScreen from './TrendsScreen';
+import DoctorProfileScreen from './DoctorProfileScreen';
 
 const TrendsScreen = ({ navigation }) => {
   return (
@@ -47,9 +50,15 @@ const TrendsScreen = ({ navigation }) => {
         }}
       />
       <View style={styles.navigation}>
-        <Text style={styles.navButton} onPress={() => navigation.navigate('Home')}>Home</Text>
-        <Text style={styles.navButton} onPress={() => navigation.navigate('Trends')}>Trends</Text>
-        <Text style={styles.navButton} onPress={() => navigation.navigate('Settings')}>Settings</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.navButton}>
+          <Text>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('TrendsScreen')} style={styles.navButton}>
+          <Text>Trends</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('DoctorProfileScreen')} style={styles.navButton}>
+          <Text>Settings</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
