@@ -1,6 +1,10 @@
 // PatientDetailsScreen.js
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native';
+import PatientDetailsScreen from './PatientDetailsScreen';
+import HomeScreen from './HomeScreen'; 
+import TrendsScreen from './TrendsScreen';
+import DoctorProfileScreen from './DoctorProfileScreen';
 
 const PatientDetailsScreen = ({ route, navigation }) => {
   const { name } = route.params;
@@ -37,20 +41,26 @@ const PatientDetailsScreen = ({ route, navigation }) => {
           <Text style={styles.infoText}>Patient Goals</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.uploadButton}>
+      <TouchableOpacity 
+        style={styles.uploadButton} 
+        onPress={() => navigation.navigate('PatientMammogramScreen')}
+      >
         <Text style={styles.uploadText}>Upload Mammogram</Text>
       </TouchableOpacity>
+
+      //navigation bar
       <View style={styles.navigation}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.navButton}>
           <Text>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Trends')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrendsScreen')} style={styles.navButton}>
           <Text>Trends</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('DoctorProfileScreen')} style={styles.navButton}>
           <Text>Settings</Text>
         </TouchableOpacity>
       </View>
+
     </View>
   );
 };

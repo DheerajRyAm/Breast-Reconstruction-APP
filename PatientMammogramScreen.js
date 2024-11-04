@@ -1,6 +1,9 @@
 // PatientMammogramScreen.js
 import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import HomeScreen from './HomeScreen'; 
+import TrendsScreen from './TrendsScreen';
+import DoctorProfileScreen from './DoctorProfileScreen';
 
 const PatientMammogramScreen = ({ navigation }) => {
   return (
@@ -27,16 +30,18 @@ const PatientMammogramScreen = ({ navigation }) => {
         <TextInput style={styles.input} placeholder="Enter area" placeholderTextColor="#666" />
       </View>
       <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('ImplantRecommendations')}>
-        <Text style={styles.nextButtonText}>Next</Text>
+        <Text style={styles.nextButtonText}>➝</Text>
       </TouchableOpacity>
+
+      //navigation
       <View style={styles.navigation}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.navButton}>
           <Text>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Trends')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrendsScreen')} style={styles.navButton}>
           <Text>Trends</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('DoctorProfileScreen')} style={styles.navButton}>
           <Text>Settings</Text>
         </TouchableOpacity>
       </View>
