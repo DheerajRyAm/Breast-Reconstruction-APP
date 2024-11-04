@@ -3,10 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './HomeScreen';
-import DensityInputScreen from './DensityInputScreen';
-import CalculatorScreen from './CalculatorScreen';
-import RecommendationsScreen from './RecommendationsScreen';
-import TrendsScreen from './TrendsScreen';
+import ImplantRecommendationsScreen from './ImplantRecommendationsScreen';
+import MainScreen from './MainScreen';
+import PatientDetailsScreen from './PatientDetailsScreen';
+import PatientMammogramScreen from './PatientMammogramScreen';
 import DoctorProfileScreen from './DoctorProfileScreen';
 
 const Stack = createNativeStackNavigator();
@@ -16,10 +16,10 @@ const AppNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="DensityInput" component={DensityInputScreen} />
-        <Stack.Screen name="Calculator" component={CalculatorScreen} />
-        <Stack.Screen name="Recommendations" component={RecommendationsScreen} />
-        <Stack.Screen name="Trends" component={TrendsScreen} />
+        <Stack.Screen name="ImplantRecommendations" component={ImplantRecommendationsScreen} />
+        <Stack.Screen name="MainScreen" component={MainScreen} />
+        <Stack.Screen name="PatientDetails" component={PatientDetailsScreen} />
+        <Stack.Screen name="PatientMammogram" component={PatientMammogramScreen} />
         <Stack.Screen name="DoctorProfile" component={DoctorProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
