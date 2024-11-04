@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Text } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './HomeScreen'; // Update this path
+import HomeScreen from './HomeScreen'; // Ensure this path is correct
 
 const Stack = createNativeStackNavigator();
 
@@ -16,13 +16,18 @@ export default function App() {
       setTimeout(async () => {
         setIsLoading(false);
         await SplashScreen.hideAsync();
-      }, 2000); // 2 seconds
+      }, 1000); // 2 seconds delay
     }
     prepare();
   }, []);
 
   if (isLoading) {
-    return null; // Render nothing while loading
+    return (
+      <View style={styles.container}>
+        <Image source={require('./assets/MM-Logo.png')} style={styles.logo} />
+        <Text style={styles.title}>Welcome to MammoMatch!</Text>
+      </View>
+    );
   }
 
   return (
@@ -37,7 +42,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0C1C2E', // Blue background color
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -49,6 +54,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'white', // Adjust text color for better contrast with background
   },
   subtitle: {
     fontSize: 18,
