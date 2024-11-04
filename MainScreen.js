@@ -3,6 +3,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
+import HomeScreen from './HomeScreen'; 
+import TrendsScreen from './TrendsScreen';
+import DoctorProfileScreen from './DoctorProfileScreen';
 
 const MainScreen = () => {
   const navigation = useNavigation();
