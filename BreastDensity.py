@@ -1,4 +1,4 @@
-!pip install numpy==1.25.2 scipy scikit-image matplotlib scikit-learn pillow joblib
+#!pip install numpy==1.25.2 scipy scikit-image matplotlib scikit-learn pillow joblib
 
 from skimage.measure import label, regionprops
 import numpy as np
@@ -73,7 +73,7 @@ def load_images(folder_path, img_size=(224, 224)):
     return images
 
 # Define the folder path
-folder_path = '/content/drive/MyDrive/Images for App'
+folder_path = '/ai/input'
 images = load_images(folder_path)
 
 # Extract features and use mean intensity as a pseudo-density label

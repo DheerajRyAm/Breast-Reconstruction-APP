@@ -8,6 +8,9 @@ import supervision as sv
 import cv2
 import numpy as np
 import os
+import warnings
+warnings.filterwarnings("ignore")
+
 
 os.environ['ROBOFLOW_API_KEY'] = 'sDVzESlGa38E7jn9kI6I'
 
@@ -35,18 +38,23 @@ def segment(image_file, output_path="ai/segmented_contours.jpg"):
         area = cv2.contourArea(contour_points)
         total_area += area
 
-        cv2.drawContours(contour_image, [contour_points], contourIdx=-1, color=(255, 255, 255), thickness=2)
+        # Get height and width
+        height = prediction.height
+        width = prediction.width
 
-    print(f"Total Area of Segmented Image: {total_area} pixels")
+        cv2.drawContours(contour_image, [contour_points], contourIdx=-1, color=(0, 250, 0), thickness=3)
+
     # all images are 8.53x 11.09 In (2560 x 3328 pixels at 300 ppi).
     area_scaled = total_area / 90000
+    print(f"Total Area of Segmented Image: {area_scaled} in^2")
 
     # Display the contour image
-    cv2.imwrite(output_path, contour_image)
+    overlay = cv2.addWeighted(image, 1, contour_image, 0.8, 0)
+    cv2.imwrite(output_path, overlay)
 
-    return area_scaled
+    return area_scaled, height, width
 
 
-image_file = "ai/Pt 1 LMLO.jpg"
-area_scaled = segment(image_file)
-print(f"Total Area of Segmented Image: {area_scaled} in^2")
+#image_file = "ai/input/Pt 1 LMLO.jpg"
+#area_scaled = segment(image_file)
+#print(f"Total Area of Segmented Image: {area_scaled} in^2")
