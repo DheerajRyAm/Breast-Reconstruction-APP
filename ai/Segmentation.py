@@ -19,7 +19,7 @@ def segment(image_file, output_path="ai/segmented_contours.jpg"):
     image = cv2.imread(image_file)
 
     # gaussian blur
-    image = cv2.GaussianBlur(image, (5, 5), 0) 
+    image = cv2.GaussianBlur(image, (15, 15), 0) 
 
     # load pre-trained yolov8n model
     model = get_model(model_id="breast-segmentation-dxcby/3", api_key=os.getenv("ROBOFLOW_API_KEY"))
